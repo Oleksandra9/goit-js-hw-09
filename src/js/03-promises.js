@@ -18,15 +18,20 @@ function onFormSubmit (event) {
 
   for (let position = 1; position <= amountForPromise; position++) {
     createPromise(position, delay)
-      .then((value) => {
-        Notify.success(`✅ Fulfilled promise ${position} in ${delay}ms`);
-      })
-      .catch((error) => {
-        Notify.failure(`❌ Rejected promise ${position} in ${delay}ms`);
-      });
+      .then(onSuccess)
+      .catch(onError);
       delay += stepDelay;
   }
 };
+
+function onSuccess (value) {
+  Notify.success(` RESOLVE promise ${value.position} in ${value.delay}ms`);
+}
+
+function onError (error) {
+  Notify.failure(`❌ Rejected promise ${error.position} in ${error.delay}ms`);
+}
+
 
 function createPromise(position, delay) {
   const shouldResolve = Math.random() > 0.3;

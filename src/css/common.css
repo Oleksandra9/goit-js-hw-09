@@ -29,6 +29,9 @@ button {
   background-color: rgb(0, 0, 0);
   color: #fafafa;
 }
+.btn-1--color{
+  background-color: rgb(104, 104, 104);
+}
 /* task_2 */
 .box {
   display: flex;

@@ -21,6 +21,7 @@ function changeBodyBackgroundColor () {
 function onStartBtn () {
 
     refs.startButtontEl.disabled = true;
+    refs.startButtontEl.classList.add("btn-1--color");
     
     timerId = setInterval(changeBodyBackgroundColor, DELAY);
     refs.bodyEl.style.backgroundColor = getRandomHexColor(); 
@@ -29,5 +30,6 @@ function onStartBtn () {
 function onStopBtn () {
     clearInterval(timerId);
     refs.startButtontEl.disabled = false;
+    refs.startButtontEl.classList.remove("btn-1--color");
 }
 
